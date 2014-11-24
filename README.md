@@ -1,6 +1,6 @@
 ### Desciprtion
 
-A native client for <http://asciiexpress.net/gameserver/>.  Fully describing this will take too long--just watch the video: <http://asciiexpress.net/gameserver/gameserverclient.mp4>.
+An Apple //e native client for <http://asciiexpress.net/gameserver/>.  Fully describing this will take too long--just watch the video: <http://asciiexpress.net/gameserver/gameserverclient.mp4>.
 
 
 ### Download
