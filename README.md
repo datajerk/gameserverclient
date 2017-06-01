@@ -32,3 +32,14 @@ Download <https://github.com/datajerk/gameserverclient/archive/master.zip> and e
 make
 ```
 
+
+### Test
+
+#### Prerequisites
+
+- MacOS
+- Virtual ][
+
+```
+make test
+```

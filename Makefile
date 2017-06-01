@@ -24,7 +24,7 @@ gameserverclient: gameserverclient.s titles.inc qrcodes.inc
 	$(CL) $(CL_FLAGS) $< 
 
 clean:
-	rm -f qrbytes *.o *.lst *.dsk *.inc *.textpage gameserverclient
+	rm -f qrbytes *.o *.lst *.dsk *.inc *.textpage gameserverclient *.aif
 
 gameserverclient.textpage: Makefile
 	( \
