@@ -1,6 +1,6 @@
 ;;apple game server client
 
-;; (c) 2012 Egan Ford (egan@sense.net)
+;; (c) 2012, 2017 Egan Ford (egan@sense.net)
 
 ;; apple //e vectors
 
