@@ -659,9 +659,9 @@ rowhi:	.byte	$4,$4,$4,$4,$5,$5,$5,$5,$6,$6,$6,$6,$7,$7,$7,$7
 
 title:	.asciiz	"Apple ][ Game Server Online! Client"
 titleend:
-ins1:	.asciiz	"Use the arrow keys to select then"
+ins1:	.asciiz	"UP/DOWN to select, RETURN to launch"
 ins1end:
-ins2:	.asciiz	"[RETURN] to launch."
+ins2:	.asciiz	"CTRL-RESET (or reboot) to return here"
 ins2end:
 ins3:	.asciiz	"Connect smartphone headphone jack to Apple //e cassette input jack (next to"
 ins3end:
