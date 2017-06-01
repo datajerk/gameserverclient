@@ -20,27 +20,11 @@ Download <https://github.com/datajerk/gameserverclient/archive/master.zip> and e
 
 - `cl65` (<http://cc65.github.io/cc65/>)
 - `c2d` (<https://github.com/datajerk/c2d>)
+- `libqrencode` (<https://github.com/fukuchi/libqrencode>)
 
 
-#### Compile
+#### Build
 ```
-cl65 -t none --listing --list-bytes 100 gameserverclient.s
-```
-
-#### Create Diskette Image
-```
-c2d gameserverclient,800 gameserverclient.dsk
-```
-
-Output:
-
-```
-Reading gameserverclient, type BINARY, start: $0800, length: 32664
-
-Number of sectors:    128
-Sector page range:    $08 - $87
-After boot, jump to:  $0800
-
-Writing gameserverclient to T:01/S:00 - T:08/S:15 on gameserverclient.dsk
+make
 ```
 
