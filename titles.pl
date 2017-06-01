@@ -6,8 +6,6 @@ my @titles = ();
 my $max = 0;
 my $s = 1;
 
-#open(LINKS,"links.sort.html") || die;
-
 print "first:\n";
 
 while(<>)
@@ -28,6 +26,5 @@ foreach(@titles) {
 	printf("s%03d:\t.asciiz\t\"%-${max}s\"\n",$s++,$_);
 }
 
-#close(LINKS);
 
 

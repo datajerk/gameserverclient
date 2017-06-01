@@ -1,6 +1,6 @@
 #!/usr/bin/env perl -w
 
-#use strict;
+use strict;
 
 my @titles = ();
 my $max = 0;
