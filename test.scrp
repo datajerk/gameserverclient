@@ -31,8 +31,6 @@ on run argv
 			set monochrome screen to false
 			set scanlines to true
 			set speaker volume to 0.25
-			-- full speed ahead
-			-- set speed to maximum
 
 			-- load disk
 			insert my_path & my_disk into device "S6D1"
@@ -65,6 +63,7 @@ on run argv
 			-- down arrow 17x and return
 			repeat 17 times
 				type key down arrow
+				delay 0.03
 			end repeat
 
 			-- ballblazer selected
