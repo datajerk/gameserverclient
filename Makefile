@@ -39,3 +39,5 @@ gameserverclient.textpage: Makefile
 gameserverclient.dsk: gameserverclient.textpage gameserverclient
 	$(C2D) -t gameserverclient.textpage gameserverclient,800 $@
 
+test: c_ballblazer_game.tiff c_ballblazer_loading.tiff c_ballblazer_piratesplash.tiff c_ballblazer_qrcode.tiff c_ballblazer_selected.tiff c_gameserverdisk_mainscreen.tiff c_gameserverdisk_splash.tiff test.sh test.scrp all
+	./test.sh

@@ -1,0 +1,142 @@
+on run argv
+
+	set my_path to (system attribute "PWD") & "/"
+	set my_disk to item 1 of argv
+	set my_audio to item 2 of argv
+	set my_screen1 to item 3 of argv
+	set my_timeout1 to item 4 of argv
+	set my_screen2 to item 5 of argv
+	set my_timeout2 to item 6 of argv
+	set my_screen3 to item 7 of argv
+	set my_timeout3 to item 8 of argv
+	set my_screen4 to item 9 of argv
+	set my_timeout4 to item 10 of argv
+	set my_screen5 to item 11 of argv
+	set my_timeout5 to item 12 of argv
+	set my_screen6 to item 13 of argv
+	set my_timeout6 to item 14 of argv
+	set my_screen7 to item 15 of argv
+	set my_timeout7 to item 16 of argv
+
+	tell application "Virtual ]["
+		activate
+		-- may need delay for this error: execution error: Virtual ][ got an error: Connection is invalid. (-609)
+		delay 1.5
+		-- Close all open machines
+		close every machine saving no
+		-- Create a new (AppleIIe)
+		set theMachine to (make new AppleIIe)
+		tell theMachine
+			-- Change to a color screen
+			set monochrome screen to false
+			set scanlines to true
+			set speaker volume to 0.25
+			-- full speed ahead
+			-- set speed to maximum
+
+			-- load disk
+			insert my_path & my_disk into device "S6D1"
+
+			-- splash page
+			try
+				with timeout of my_timeout1 seconds
+					waiting until screen equals imagefile POSIX path of (my_path & my_screen1)
+				end timeout
+			on error
+				return "ERROR: TIMEOUT: Virtual ][ screen != " & my_screen1
+			end try
+
+			-- full speed ahead
+			set speed to maximum
+
+			-- main screen
+			try
+				with timeout of my_timeout2 seconds
+					waiting until screen equals imagefile POSIX path of (my_path & my_screen2)
+				end timeout
+			on error
+				return "ERROR: TIMEOUT: Virtual ][ screen != " & my_screen2
+			end try
+			delay 0.5
+
+			-- normal speed
+			set speed to regular
+
+			-- down arrow 17x and return
+			repeat 17 times
+				type key down arrow
+			end repeat
+
+			-- ballblazer selected
+			try
+				with timeout of my_timeout3 seconds
+					waiting until screen equals imagefile POSIX path of (my_path & my_screen3)
+				end timeout
+			on error
+				return "ERROR: TIMEOUT: Virtual ][ screen != " & my_screen3
+			end try
+			delay 0.5
+
+			-- return on ballblazer
+			type line ""
+
+			-- qr code screen
+			try
+				with timeout of my_timeout4 seconds
+					waiting until screen equals imagefile POSIX path of (my_path & my_screen4)
+				end timeout
+			on error
+				return "ERROR: TIMEOUT: Virtual ][ screen != " & my_screen4
+			end try
+			delay 0.5
+
+			-- send audio
+			play my_path & my_audio on device "cassette recorder"
+
+			-- audio start screen
+			try
+				with timeout of my_timeout5 seconds
+					waiting until screen equals imagefile POSIX path of (my_path & my_screen5)
+				end timeout
+			on error
+				return "ERROR: TIMEOUT: Virtual ][ screen != " & my_screen5
+			end try
+
+			-- full speed ahead
+			set speed to maximum
+
+			-- pirate splash page
+			try
+				with timeout of my_timeout6 seconds
+					waiting until screen equals imagefile POSIX path of (my_path & my_screen6)
+				end timeout
+			on error
+				return "ERROR: TIMEOUT: Virtual ][ screen != " & my_screen6
+			end try
+			delay 1.0
+
+			-- normal speed
+			set speed to regular
+
+			-- eject tape
+			eject device "cassette recorder"
+
+			-- press return
+			type line ""
+
+			-- game screen
+			try
+				with timeout of my_timeout7 seconds
+					waiting until screen equals imagefile POSIX path of (my_path & my_screen7)
+				end timeout
+			on error
+				return "ERROR: TIMEOUT: Virtual ][ screen != " & my_screen7
+			end try
+
+		end tell
+		delay 0.5
+		close every machine saving no
+		quit
+	end tell
+end run
+
