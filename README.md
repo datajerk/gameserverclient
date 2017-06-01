@@ -21,6 +21,10 @@ Download <https://github.com/datajerk/gameserverclient/archive/master.zip> and e
 - `cl65` (<http://cc65.github.io/cc65/>)
 - `c2d` (<https://github.com/datajerk/c2d>)
 - `libqrencode` (<https://github.com/fukuchi/libqrencode>)
+- `perl`
+- `gcc`
+- `figlet`
+- `curl`
 
 
 #### Build
