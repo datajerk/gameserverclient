@@ -21,7 +21,7 @@ on run argv
 			-- Change to a color screen
 			set monochrome screen to false
 			set scanlines to true
-			set speaker volume to 0.25
+			set speaker volume to 0.50
 
 			-- load disk
 			insert my_path & my_disk into device "S6D1"
@@ -64,7 +64,7 @@ on run argv
 			delay 1.0
 			-- full speed ahead
 			set speed to maximum
-			delay 0.5
+			delay 1.5
 			-- normal speed
 			set speed to regular
 
