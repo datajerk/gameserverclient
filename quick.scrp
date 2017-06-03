@@ -51,7 +51,7 @@ on run argv
 			-- normal speed
 			set speed to regular
 
-			-- down arrow 17x and return
+			-- down arrow my_down times and return
 			repeat my_down times
 				type key down arrow
 				delay 0.03
@@ -70,18 +70,21 @@ on run argv
 
 			-- send audio
 			play my_path & my_audio on device "cassette recorder"
-			delay 1.0
+
 			-- full speed ahead
 			if (my_demo = 0) then
+				-- delay to see post QR text loading screen
+				delay 1.0
 				set speed to maximum
+				-- will need to be ajusted based on speed of your mac
+				delay 1.5
+				-- normal speed
+				set speed to regular
 			end if
+
 			if (my_demo = 1) then
-				delay (my_audiotime + 0.5)
+				delay (my_audiotime + 1.0)
 			end if
-			-- will need to be ajusted based on speed of your mac
-			delay 1.5
-			-- normal speed
-			set speed to regular
 
 			-- eject tape
 			eject device "cassette recorder"
