@@ -1,14 +1,12 @@
 on run argv
 	set my_path to (system attribute "PWD") & "/"
 	set my_disk to item 1 of argv
-	set my_audio to item 2 of argv
-	set my_screen1 to item 3 of argv
-	set my_timeout1 to item 4 of argv
-	set my_screen2 to item 5 of argv
-	set my_timeout2 to item 6 of argv
-	set my_down to item 7 of argv
-	set my_tapedelay to item 8 of argv
-	set my_demo to item 9 of argv
+	set my_screen1 to item 2 of argv
+	set my_timeout1 to item 3 of argv
+	set my_screen2 to item 4 of argv
+	set my_timeout2 to item 5 of argv
+	set my_down to item 6 of argv
+	set my_demo to item 7 of argv as number
 
 	tell application "Virtual ]["
 		activate
@@ -37,7 +35,7 @@ on run argv
 			end try
 
 			-- full speed ahead
-			if (my_demo = "0") then
+			if (my_demo = 0) then
 				set speed to maximum
 			end if
 
@@ -62,14 +60,25 @@ on run argv
 			type line ""
 			delay 1.0
 
+			-- get qr code
+			snap screen picture to POSIX path of (my_path & "quick.tiff") format tiff
+
+			-- get audio
+			do shell script "./decodeanddownload.sh quick.tiff"
+			set my_audiotime to the result as number
+			set my_audio to "quick.aif"
+
 			-- send audio
 			play my_path & my_audio on device "cassette recorder"
 			delay 1.0
 			-- full speed ahead
-			if (my_demo = "0") then
+			if (my_demo = 0) then
 				set speed to maximum
 			end if
-			delay my_tapedelay
+			if (my_demo = 1) then
+				delay my_audiotime
+			end if
+			delay 1.5
 			-- normal speed
 			set speed to regular
 

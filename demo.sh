@@ -46,25 +46,16 @@ GAME=$(curl -sL http://asciiexpress.net/gameserver/links.html | sort | head -$LI
 
 DOWN=$((LINE - 1))
 TITLE=$(echo $GAME | awk -F, '{print $1}')
-GAME_URL=$(echo $GAME | awk -F, '{print "http://asciiexpress.net/gameserver/" $2}')
 
-rm -f quick.aif
 echo
-echo -n "Downloading $GAME_URL"
-echo
-curl -sL $GAME_URL | sox - quick.aif
-echo
-
-AUDIOTIME=$(soxi -D quick.aif)
+echo -n "${TITLE}..."
 
 if ! OUTPUT=$(
 	osascript quick.scrp \
 	gameserverclient.dsk \
-	quick.aif \
 	c_gameserverdisk_splash.tiff $((5 + DEMO * 10)) \
 	c_gameserverdisk_mainscreen.tiff $((5 + DEMO * 10)) \
 	$DOWN \
-	$( dc <<< "$DEMO $AUDIOTIME * 1.5 + p" ) \
 	$DEMO
 	)
 then

@@ -39,7 +39,26 @@ make
 
 - MacOS
 - Virtual ][
+- `zxing-cpp` (zxing command) for testing (<https://github.com/glassechidna/zxing-cpp>)
+- `tifftopnm` and `pnmtojpeg` from Netpbm (<http://netpbm.sourceforge.net/>)
+- `sox` and `soxi` from SoX (<http://sox.sourceforge.net/>)
 
 ```
 make test
+./quick.sh [search string or "random"]
+./demo.sh [search string or "random"]
 ```
+
+
+### Appendix
+
+#### zxing-cpp build
+```
+git clone https://github.com/glassechidna/zxing-cpp
+cd xzing-cpp
+cd build
+cmake -G "Unix Makefiles" ..
+make
+sudo cp zxing /usr/local/bin/
+```
+
