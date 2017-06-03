@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# needs better error handling, zxing returns true on fail, test with Stellar Invaders
+
 set -e
 
 tifftopnm <$1 2>/dev/null | pnmtojpeg >decode.jpg

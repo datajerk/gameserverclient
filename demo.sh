@@ -9,17 +9,13 @@ then
 	DEMO=1
 fi
 
-RAND=0
 if [ "$GAME" = "random" ]
 then
-	GAME=""
-	RAND=1
-fi
+	ITEMS=$(curl -sL http://asciiexpress.net/gameserver/links.html | wc -l)
+	LINE=$(( RANDOM % ITEMS + 1))
+else
+	ITEMS=$(curl -sL http://asciiexpress.net/gameserver/links.html | awk -F\" '{print $4}' | sort | grep -i "$GAME" | wc -l)
 
-ITEMS=$(curl -sL http://asciiexpress.net/gameserver/links.html | awk -F\" '{print $4}' | sort | grep -i "$GAME" | wc -l)
-
-if (( RAND == 0 ))
-then
 	if (( ITEMS == 0 ))
 	then
 		echo "game $GAME not found" >&2
@@ -38,14 +34,10 @@ then
 	fi
 
 	LINE=$(curl -sL http://asciiexpress.net/gameserver/links.html | awk -F\" '{print $4}' | sort | grep -ni "$GAME" | head -$ITEM | tail -1 | awk -F: '{print $1}')
-else
-	LINE=$(( RANDOM % ITEMS + 1))
 fi
 
-GAME=$(curl -sL http://asciiexpress.net/gameserver/links.html | sort | head -$LINE | tail -1 | awk -F\" '{print $4 "," $6}' | sed 's/.html$/.qr.wav/')
-
 DOWN=$((LINE - 1))
-TITLE=$(echo $GAME | awk -F, '{print $1}')
+TITLE=$(curl -sL http://asciiexpress.net/gameserver/links.html | sort | head -$LINE | tail -1 | awk -F\" '{print $4}')
 
 echo
 echo -n "${TITLE}..."

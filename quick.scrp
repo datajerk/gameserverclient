@@ -5,7 +5,7 @@ on run argv
 	set my_timeout1 to item 3 of argv
 	set my_screen2 to item 4 of argv
 	set my_timeout2 to item 5 of argv
-	set my_down to item 6 of argv
+	set my_down to item 6 of argv as number
 	set my_demo to item 7 of argv as number
 
 	tell application "Virtual ]["
@@ -76,8 +76,9 @@ on run argv
 				set speed to maximum
 			end if
 			if (my_demo = 1) then
-				delay my_audiotime
+				delay (my_audiotime + 0.5)
 			end if
+			-- will need to be ajusted based on speed of your mac
 			delay 1.5
 			-- normal speed
 			set speed to regular
