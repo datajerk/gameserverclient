@@ -39,12 +39,16 @@ make
 
 - MacOS
 - Virtual ][
-- `zxing-cpp` (zxing command) for testing (<https://github.com/glassechidna/zxing-cpp>)
+- `zxing` (<https://github.com/glassechidna/zxing-cpp>)
 - `tifftopnm` and `pnmtojpeg` from Netpbm (<http://netpbm.sourceforge.net/>)
 - `sox` and `soxi` from SoX (<http://sox.sourceforge.net/>)
 
 ```
 make test
+```
+
+#### Ad Hoc Testing
+```
 ./quick.sh [search string or "random"]
 ./demo.sh [search string or "random"]
 ```
