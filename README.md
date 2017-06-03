@@ -24,7 +24,6 @@ Download <https://github.com/datajerk/gameserverclient/archive/master.zip> and e
 - `perl`
 - `gcc`
 - `figlet`
-- `curl`
 
 
 #### Build
@@ -39,6 +38,7 @@ make
 
 - MacOS
 - Virtual ][
+- `curl`
 - `zxing` (<https://github.com/glassechidna/zxing-cpp>)
 - `tifftopnm` and `pnmtojpeg` from Netpbm (<http://netpbm.sourceforge.net/>)
 - `sox` and `soxi` from SoX (<http://sox.sourceforge.net/>)
