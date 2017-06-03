@@ -53,6 +53,22 @@ make test
 ./demo.sh [search string or "random"]
 ```
 
+Example Session:
+```
+$ ./demo.sh alien
+1       Alien Ambush
+2       Alien Downpour
+3       Alien Game
+4       Alien Munchies
+5       Alien Typhoon
+
+pick one: 2
+
+Alien Downpour...LAUNCHED
+```
+
+Video Output: <http://asciiexpress.net/files/gameserverclienttest.mp4>
+
 
 ### Appendix
 
