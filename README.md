@@ -53,7 +53,7 @@ make test
 ./demo.sh [search string or "random"]
 ```
 
-Example Session:
+Example Ad Hoc Session:
 ```
 $ ./demo.sh alien
 1       Alien Ambush
@@ -67,7 +67,7 @@ pick one: 2
 Alien Downpour...LAUNCHED
 ```
 
-Video Output: <http://asciiexpress.net/files/gameserverclienttest.mp4>
+Ad hoc example session video output: <http://asciiexpress.net/files/gameserverclienttest.mp4>
 
 
 ### Appendix
