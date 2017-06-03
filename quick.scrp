@@ -1,5 +1,4 @@
 on run argv
-
 	set my_path to (system attribute "PWD") & "/"
 	set my_disk to item 1 of argv
 	set my_audio to item 2 of argv
@@ -8,6 +7,8 @@ on run argv
 	set my_screen2 to item 5 of argv
 	set my_timeout2 to item 6 of argv
 	set my_down to item 7 of argv
+	set my_tapedelay to item 8 of argv
+	set my_demo to item 9 of argv
 
 	tell application "Virtual ]["
 		activate
@@ -36,7 +37,9 @@ on run argv
 			end try
 
 			-- full speed ahead
-			set speed to maximum
+			if (my_demo = "0") then
+				set speed to maximum
+			end if
 
 			-- main screen
 			try
@@ -63,8 +66,10 @@ on run argv
 			play my_path & my_audio on device "cassette recorder"
 			delay 1.0
 			-- full speed ahead
-			set speed to maximum
-			delay 1.5
+			if (my_demo = "0") then
+				set speed to maximum
+			end if
+			delay my_tapedelay
 			-- normal speed
 			set speed to regular
 
