@@ -23,9 +23,6 @@ titles.inc: titles.pl
 gameserverclient: gameserverclient.s titles.inc qrcodes.inc
 	$(CL) $(CL_FLAGS) $< 
 
-clean:
-	rm -f qrbytes *.o *.lst *.dsk *.inc *.textpage gameserverclient *.aif
-
 gameserverclient.textpage: Makefile
 	( \
 	figlet -c -w 40 -f slant "Apple ][ Game Server Online!" | \
@@ -41,3 +38,7 @@ gameserverclient.dsk: gameserverclient.textpage gameserverclient
 
 test: c_ballblazer_game.tiff c_ballblazer_loading.tiff c_ballblazer_piratesplash.tiff c_ballblazer_qrcode.tiff c_ballblazer_selected.tiff c_gameserverdisk_mainscreen.tiff c_gameserverdisk_splash.tiff test.sh test.scrp all
 	./test.sh
+
+clean:
+	rm -f qrbytes *.o *.lst *.dsk *.inc *.textpage gameserverclient *.aif
+
