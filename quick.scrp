@@ -8,6 +8,7 @@ on run argv
 	set my_down to item 6 of argv as number
 	set my_demo to item 7 of argv as number
 
+	-- tell application "/Applications/Virtual ][/7.6/Virtual ][.app"
 	tell application "Virtual ]["
 		activate
 		-- may need delay for this error: execution error: Virtual ][ got an error: Connection is invalid. (-609)

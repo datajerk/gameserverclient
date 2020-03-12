@@ -12,12 +12,12 @@ qrbytes: qrbytes.c
 
 qrcodes.inc: qrcodes.pl qrbytes
 	curl -sL http://asciiexpress.net/gameserver/links.html | \
-	sort | \
+	sort -t\" -k 5 | \
 	./qrcodes.pl >$@
 
 titles.inc: titles.pl
 	curl -sL http://asciiexpress.net/gameserver/links.html | \
-	sort | \
+	sort -t\" -k 5 | \
 	./titles.pl >$@
 
 gameserverclient: gameserverclient.s titles.inc qrcodes.inc
