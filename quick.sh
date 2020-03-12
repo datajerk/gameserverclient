@@ -14,7 +14,7 @@ then
 	ITEMS=$(curl -sL http://asciiexpress.net/gameserver/links.html | wc -l)
 	LINE=$(( RANDOM % ITEMS + 1))
 else
-	ITEMS=$(curl -sL http://asciiexpress.net/gameserver/links.html | awk -F\" '{print $4}' | sort | grep -i "$GAME" | wc -l)
+	ITEMS=$(curl -sL http://asciiexpress.net/gameserver/links.html | awk -F\" '{print $4}' | sort -f | grep -i "$GAME" | wc -l)
 
 	if (( ITEMS == 0 ))
 	then
@@ -22,7 +22,7 @@ else
 		exit 1
 	fi
 
-	curl -sL http://asciiexpress.net/gameserver/links.html | awk -F\" '{print $4}' | sort | grep -i "$GAME" | nl -nln
+	curl -sL http://asciiexpress.net/gameserver/links.html | awk -F\" '{print $4}' | sort -f | grep -i "$GAME" | nl -nln
 
 	ITEM=1
 	if (( ITEMS > 1 ))
@@ -33,11 +33,11 @@ else
 		test -z "$ITEM" && ITEM=1
 	fi
 
-	LINE=$(curl -sL http://asciiexpress.net/gameserver/links.html | awk -F\" '{print $4}' | sort | grep -ni "$GAME" | head -$ITEM | tail -1 | awk -F: '{print $1}')
+	LINE=$(curl -sL http://asciiexpress.net/gameserver/links.html | awk -F\" '{print $4}' | sort -f | grep -ni "$GAME" | head -$ITEM | tail -1 | awk -F: '{print $1}')
 fi
 
 DOWN=$((LINE - 1))
-TITLE=$(curl -sL http://asciiexpress.net/gameserver/links.html | sort -t\" -k 5 | head -$LINE | tail -1 | awk -F\" '{print $4}')
+TITLE=$(curl -sL http://asciiexpress.net/gameserver/links.html | sort -f -t\" -k 5 | head -$LINE | tail -1 | awk -F\" '{print $4}')
 
 echo
 echo -n "${TITLE}..."
