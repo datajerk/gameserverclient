@@ -37,9 +37,9 @@ make
 #### Prerequisites
 
 - MacOS
-- Virtual ][
+- Virtual ][ 9.2
 - `curl`
-- `zxing` (<https://github.com/glassechidna/zxing-cpp>)
+- `zbarimg` (Google for `zbar-0.10.tar.bz2`)
 - `tifftopnm` and `pnmtojpeg` from Netpbm (<http://netpbm.sourceforge.net/>)
 - `sox` and `soxi` from SoX (<http://sox.sourceforge.net/>)
 
@@ -48,12 +48,14 @@ make test
 ```
 
 #### Ad Hoc Testing
+
 ```
 ./quick.sh [search string or "random"]
 ./demo.sh [search string or "random"]
 ```
 
 Example Ad Hoc Session:
+
 ```
 $ ./demo.sh alien
 1       Alien Ambush
@@ -72,13 +74,13 @@ Ad hoc example session video output: <http://asciiexpress.net/files/gameservercl
 
 ### Appendix
 
-#### zxing-cpp build
+#### Zbar MacOS Build
 ```
-git clone https://github.com/glassechidna/zxing-cpp
-cd xzing-cpp
-cd build
-cmake -G "Unix Makefiles" ..
-make
-sudo cp zxing /usr/local/bin/
+sudo port install imagemagick qrencode
+tar zxvf zbar-0.10.tar.bz2
+cd zbar-0.10
+./configure --disable-video --without-python --without-gtk --without-qt --with-libiconv-prefix=/opt/local
+make -j
+sudo make install
 ```
 
