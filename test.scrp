@@ -60,8 +60,8 @@ on run argv
 			-- normal speed
 			set speed to regular
 
-			-- down arrow 17x and return
-			repeat 17 times
+			-- down arrow 18x and return
+			repeat 18 times
 				type key down arrow
 				delay 0.03
 			end repeat
