@@ -37,7 +37,7 @@ else
 fi
 
 DOWN=$((LINE - 1))
-TITLE=$(curl -sL http://asciiexpress.net/gameserver/links.html | sort -f -t\" -k 5 | head -$LINE | tail -1 | awk -F\" '{print $4}')
+TITLE=$(curl -sL http://asciiexpress.net/gameserver/links.html | sort -f | head -$LINE | tail -1 | awk -F\" '{print $4}')
 
 echo
 echo -n "${TITLE}..."
